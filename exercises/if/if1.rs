@@ -2,11 +2,7 @@
 
 
 pub fn bigger(a: i32, b: i32) -> i32 {
-    if a >= b {
-        a
-    } else {
-        b
-    }
+    std::cmp::max(a, b)
 }
 
 // Don't mind this for now :)
