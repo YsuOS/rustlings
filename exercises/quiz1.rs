@@ -9,11 +9,11 @@
 
 
 fn calculate_apple_price(prise: u32) -> u32 {
-    let mut apple = 2;
-
-    if prise > 40 {
-        apple = 1;
-    }
+    let apple = if prise > 40 {
+        1
+    } else {
+        2
+    };
     apple * prise
 }
 
