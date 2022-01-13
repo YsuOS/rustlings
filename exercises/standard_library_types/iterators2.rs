@@ -34,7 +34,7 @@ pub fn capitalize_words_vector(words: &[&str]) -> Vec<String> {
 pub fn capitalize_words_string(words: &[&str]) -> String {
     let mut string = String::new();
     for i in words.iter() {
-        string = string + &capitalize_first(i);
+        string += &capitalize_first(i);
     }
     string
 }
