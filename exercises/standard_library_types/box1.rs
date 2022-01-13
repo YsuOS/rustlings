@@ -23,6 +23,14 @@ pub enum List {
     Nil,
 }
 
+impl List {
+    fn add_list(self, number: i32) -> List {
+        match self {
+            List::Nil => List::Cons(number, Box::new(List::Nil)),
+            List::Cons(x,_) => List::Cons(x, Box::new(List::Cons(number, Box::new(List::Nil)))),
+        }
+    }
+}
 fn main() {
     println!("This is an empty cons list: {:?}", create_empty_list());
     println!(
@@ -36,7 +44,7 @@ pub fn create_empty_list() -> List {
 }
 
 pub fn create_non_empty_list() -> List {
-    List::Cons(1, Box::new(List::Cons(2, Box::new(List::Nil))))
+    create_empty_list().add_list(1).add_list(2)
 }
 
 #[cfg(test)]
